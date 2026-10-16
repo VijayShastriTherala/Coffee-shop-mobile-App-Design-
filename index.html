@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#11100f">
+    <meta name="description" content="Find your next favorite cup at Coffee Corner.">
+    <title>Coffee Corner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-frame" id="app">
+      <section class="screen welcome-screen is-active" id="welcome" aria-label="Welcome">
+        <div class="welcome-photo" role="img" aria-label="A steaming cup of freshly brewed coffee"></div>
+        <div class="status-bar status-bar-light" aria-hidden="true">
+          <span>9:41</span>
+          <span class="status-icons"><i class="signal"></i><i class="wifi"></i><i class="battery"></i></span>
+        </div>
+        <div class="welcome-content">
+          <h1>Fall in Love with<br>Coffee in Blissful<br>Delight!</h1>
+          <p>Welcome to our cozy coffee corner, where<br class="desktop-break"> every cup is a delightful for you.</p>
+          <button class="primary-button welcome-cta" data-screen="home">Get Started</button>
+        </div>
+        <div class="home-indicator home-indicator-light" aria-hidden="true"></div>
+      </section>
+
+      <section class="screen app-screen" id="home" aria-label="Coffee shop">
+        <header class="status-bar status-bar-dark" aria-hidden="true">
+          <span>9:41</span>
+          <span class="status-icons"><i class="signal"></i><i class="wifi"></i><i class="battery"></i></span>
+        </header>
+        <div class="home-header">
+          <div>
+            <span class="eyebrow">Location</span>
+            <button class="location-button" aria-label="Current location: Bilzen, Tanjungbalai">Bilzen, Tanjungbalai <span>⌄</span></button>
+          </div>
+          <button class="avatar-button" aria-label="Your profile">☕</button>
+        </div>
+        <div class="search-row">
+          <label class="search-field"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search coffee" aria-label="Search coffee"></label>
+          <button class="filter-button" aria-label="Filter coffee">☷</button>
+        </div>
+        <div class="home-scroll">
+          <article class="promo-card">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=85" alt="">
+            <div class="promo-shade"></div>
+            <span class="promo-tag">Promo</span>
+            <h2>Buy one get<br>one FREE</h2>
+          </article>
+          <div class="section-heading">
+            <h2>Special for you</h2>
+            <button class="text-button" id="see-all">See all</button>
+          </div>
+          <nav class="category-list" aria-label="Coffee categories">
+            <button class="category-chip selected" data-category="All Coffee">All Coffee</button>
+            <button class="category-chip" data-category="Macchiato">Macchiato</button>
+            <button class="category-chip" data-category="Latte">Latte</button>
+            <button class="category-chip" data-category="Americano">Americano</button>
+          </nav>
+          <div class="product-grid" id="product-grid"></div>
+        </div>
+        <nav class="bottom-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-screen="home" aria-label="Home"><span>⌂</span></button>
+          <button class="nav-item" data-screen="favorites" aria-label="Favorites"><span>♡</span></button>
+          <button class="nav-item" data-screen="order" aria-label="Orders"><span>▢</span><b id="cart-count" hidden>0</b></button>
+          <button class="nav-item" data-screen="profile" aria-label="Profile"><span>♙</span></button>
+        </nav>
+        <div class="home-indicator" aria-hidden="true"></div>
+      </section>
+
+      <section class="screen app-screen detail-screen" id="detail" aria-label="Coffee details">
+        <header class="status-bar status-bar-dark" aria-hidden="true">
+          <span>9:41</span><span class="status-icons"><i class="signal"></i><i class="wifi"></i><i class="battery"></i></span>
+        </header>
+        <div class="topbar">
+          <button class="icon-button" data-screen="home" aria-label="Go back">‹</button>
+          <h1>Detail</h1>
+          <button class="icon-button heart-button" id="detail-heart" aria-label="Add to favorites">♡</button>
+        </div>
+        <div class="detail-scroll">
+          <img id="detail-image" class="detail-image" src="" alt="">
+          <div class="detail-title-row">
+            <div><h2 id="detail-name">Caffe Mocha</h2><span class="muted" id="detail-subtitle">Deep Foam</span></div>
+            <div class="detail-actions"><button aria-label="Delivery">♧</button><button aria-label="Coffee quality">♨</button><button aria-label="Organic">♧</button></div>
+          </div>
+          <div class="rating"><span>★</span> <strong>4.8</strong> <span class="muted">(230)</span></div>
+          <hr>
+          <h3>Description</h3>
+          <p class="description">A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85ml of fresh milk to the foam.</p>
+          <h3 class="size-heading">Size</h3>
+          <div class="size-options" role="group" aria-label="Choose size">
+            <button data-size="S">S</button><button class="selected" data-size="M">M</button><button data-size="L">L</button>
+          </div>
+        </div>
+        <footer class="detail-footer">
+          <div><span class="muted">Price</span><strong id="detail-price">$ 4.53</strong></div>
+          <button class="primary-button" id="buy-now">Buy Now</button>
+        </footer>
+        <div class="home-indicator" aria-hidden="true"></div>
+      </section>
+
+      <section class="screen app-screen order-screen" id="order" aria-label="Your order">
+        <header class="status-bar status-bar-dark" aria-hidden="true">
+          <span>9:41</span><span class="status-icons"><i class="signal"></i><i class="wifi"></i><i class="battery"></i></span>
+        </header>
+        <div class="topbar">
+          <button class="icon-button" data-screen="home" aria-label="Go back">‹</button><h1>Order</h1><span class="topbar-spacer"></span>
+        </div>
+        <div class="order-scroll">
+          <div class="delivery-toggle"><button class="selected" data-delivery="Deliver">Deliver</button><button data-delivery="Pick Up">Pick Up</button></div>
+          <div class="address-block">
+            <h2 id="address-heading">Delivery Address</h2><strong>Jl. Kpg Sutoyo</strong><p>Kpg. Sutoyo No. 620, Bilzen, Tanjungbalai.</p>
+            <div class="address-actions"><button>Edit Address</button><button>Add Note</button></div>
+          </div>
+          <div class="order-line">
+            <img id="order-image" src="" alt="">
+            <div class="order-product"><strong id="order-name">Caffe Mocha</strong><span id="order-subtitle">Deep Foam</span></div>
+            <div class="quantity-control"><button id="decrease" aria-label="Decrease quantity">−</button><span id="quantity">1</span><button id="increase" aria-label="Increase quantity">+</button></div>
+          </div>
+          <button class="discount-button"><span>◎</span> Discount is Applies <span>›</span></button>
+          <section class="payment-summary">
+            <h2>Payment Summary</h2>
+            <p><span>Price</span><strong id="summary-price">$ 4.53</strong></p>
+            <p><span>Delivery Fee</span><span><del>$ 2.0</del> <strong>$ 1.0</strong></span></p>
+          </section>
+          <button class="payment-method"><span class="wallet-icon">▣</span><span><strong>Cash/Wallet</strong><small id="wallet-total">$ 5.53</small></span><span class="chevron">⌄</span></button>
+        </div>
+        <footer class="order-footer">
+          <div><span class="muted">Total Payment</span><strong id="total-payment">$ 5.53</strong></div>
+          <button class="primary-button" id="place-order">Order</button>
+        </footer>
+        <div class="home-indicator" aria-hidden="true"></div>
+      </section>
+
+      <section class="screen app-screen tracking-screen" id="tracking" aria-label="Track delivery">
+        <div class="tracking-map">
+          <div class="map-streets" aria-hidden="true"></div>
+          <span class="map-label label-one">Jl. Kpg Sutoyo</span>
+          <span class="map-label label-two">Nirmala</span>
+          <span class="map-label label-three">8th Street</span>
+          <span class="map-label label-four">2nd Ave</span>
+          <svg class="route-line" viewBox="0 0 390 450" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M68 318 L68 234 L170 234 L170 154 L272 154 L272 86 L328 86"></path>
+          </svg>
+          <span class="shop-pin" aria-label="Coffee shop">☕</span>
+          <span class="courier-pin" aria-label="Courier location">⌑</span>
+          <header class="status-bar status-bar-dark tracking-status" aria-hidden="true">
+            <span>9:41</span><span class="status-icons"><i class="signal"></i><i class="wifi"></i><i class="battery"></i></span>
+          </header>
+          <button class="map-back icon-button" data-screen="home" aria-label="Back to home">‹</button>
+          <button class="map-settings icon-button" id="map-settings" aria-label="Map settings">◎</button>
+        </div>
+        <div class="tracking-sheet">
+          <div class="arrival-heading"><strong>10 minutes left</strong><span>Delivery to Jl. Kpg Sutoyo</span></div>
+          <div class="progress-track"><i></i><i></i><i></i></div>
+          <div class="delivery-note"><span class="delivery-icon">♨</span><span><strong>Delivered your order</strong><small>We will deliver your goods to you in the shortest possible time.</small></span></div>
+          <div class="courier-card"><span class="courier-avatar">👨🏽</span><span class="courier-details"><strong>Brooklyn Simmons</strong><small>Personal Courier</small></span><button id="call-courier" aria-label="Call courier">⌕</button></div>
+        </div>
+        <div class="home-indicator" aria-hidden="true"></div>
+      </section>
+
+      <section class="screen app-screen simple-screen" id="favorites" aria-label="Favorites">
+        <header class="status-bar status-bar-dark" aria-hidden="true"><span>9:41</span><span class="status-icons"><i class="signal"></i><i class="wifi"></i><i class="battery"></i></span></header>
+        <div class="topbar"><button class="icon-button" data-screen="home" aria-label="Go back">‹</button><h1>Favorites</h1><span class="topbar-spacer"></span></div>
+        <div class="simple-content"><div class="product-grid" id="favorites-grid"></div><p class="empty-state" id="favorites-empty">Your favorite coffees will show up here.</p></div>
+        <nav class="bottom-nav"><button class="nav-item" data-screen="home" aria-label="Home"><span>⌂</span></button><button class="nav-item active" data-screen="favorites" aria-label="Favorites"><span>♡</span></button><button class="nav-item" data-screen="order" aria-label="Orders"><span>▢</span></button><button class="nav-item" data-screen="profile" aria-label="Profile"><span>♙</span></button></nav>
+        <div class="home-indicator" aria-hidden="true"></div>
+      </section>
+
+      <section class="screen app-screen simple-screen" id="profile" aria-label="Profile">
+        <header class="status-bar status-bar-dark" aria-hidden="true"><span>9:41</span><span class="status-icons"><i class="signal"></i><i class="wifi"></i><i class="battery"></i></span></header>
+        <div class="topbar"><button class="icon-button" data-screen="home" aria-label="Go back">‹</button><h1>Profile</h1><span class="topbar-spacer"></span></div>
+        <div class="profile-content"><div class="profile-avatar">☕</div><h2>Coffee Lover</h2><p>Welcome to your cozy coffee corner.</p><button class="primary-button" data-screen="home">Explore coffee</button></div>
+        <nav class="bottom-nav"><button class="nav-item" data-screen="home" aria-label="Home"><span>⌂</span></button><button class="nav-item" data-screen="favorites" aria-label="Favorites"><span>♡</span></button><button class="nav-item" data-screen="order" aria-label="Orders"><span>▢</span></button><button class="nav-item active" data-screen="profile" aria-label="Profile"><span>♙</span></button></nav>
+        <div class="home-indicator" aria-hidden="true"></div>
+      </section>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
